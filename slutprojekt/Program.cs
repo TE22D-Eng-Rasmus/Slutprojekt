@@ -2,20 +2,30 @@
 using System.Numerics;
 using Raylib_cs;
 
-Raylib.InitWindow(1980,1080,"shuno");
+
+
+Raylib.InitWindow(1980, 1080, "shuno");
 Raylib.ToggleFullscreen();
 Raylib.SetTargetFPS(60);
 
-while (!Raylib.WindowShouldClose()){
-Raylib.BeginDrawing();
+player player = new player();
 
-Raylib.ClearBackground(Color.DarkGray);
+while (!Raylib.WindowShouldClose())
+{
+    Raylib.BeginDrawing();
 
-Raylib.EndDrawing();
+    Raylib.ClearBackground(Color.DarkGray);
+
+    Raylib.DrawRectangle(100,100,50,50,Color.Magenta);
+
+
+
+    Raylib.EndDrawing();
 
 }
 
-class player{
+class player
+{
 
 
 }
