@@ -26,10 +26,11 @@ while (!Raylib.WindowShouldClose())
     if (Raylib.IsKeyPressed(KeyboardKey.W))
     {
         player.movement.Y = -10;
-        // gravity += 1;
-
     }
-    
+    if (Raylib.IsKeyPressed(KeyboardKey.Space))
+    {
+        player.movement.Y = -10;
+    }
     
     if (Raylib.IsKeyDown(KeyboardKey.D))
     {
@@ -42,12 +43,16 @@ while (!Raylib.WindowShouldClose())
 
 
 
-
+if (player.position.Y > 960){
+player.position.Y = 960;
+gravity = 0;
+}
     
 
 
    // Vector2.Normalize(player.movement);
     player.position += player.movement;
+    player.movement.Y += gravity;
     
 
 
