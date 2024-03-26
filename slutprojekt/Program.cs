@@ -18,7 +18,7 @@ static void ground(int groundlevel)
     Raylib.DrawRectangle(0, groundlevel, 5000, 500, Color.Green);
 }
 
-//bool collision = false;
+bool collision = false;
 bool jump = true;
 
 while (!Raylib.WindowShouldClose())
@@ -32,38 +32,52 @@ while (!Raylib.WindowShouldClose())
 
     ground(groundlevel);
 
-   // player.DrawRectangle(player, 50, 50, 50, 50, Color.Green);
+    // player.DrawRectangle(player, 50, 50, 50, 50, Color.Green);
 
     player.Update();
 
-if (jump==true){
-
-    if (Raylib.IsKeyPressed(KeyboardKey.W))
+    if (jump == true)
     {
-        player.movement.Y = -10;
-        jump = false;
-    }
-    if (Raylib.IsKeyPressed(KeyboardKey.Space))
-    {
-        player.movement.Y = -10;
-        jump = false;
-    }
-}
 
+        if (Raylib.IsKeyPressed(KeyboardKey.W))
+        {
+            player.movement.Y = -10;
+            jump = false;
+        }
+        if (Raylib.IsKeyPressed(KeyboardKey.Space))
+        {
+            player.movement.Y = -10;
+            jump = false;
+        }
+    }
+
+       collision = Raylib.CheckCollisionRecs(playerRect,player.rect);
+       if (collision == true){
+        if (player.movement.X >=1 ){
+            Boolean right = true;
+        }
+       }
+
+    if (collision == false){
     if (Raylib.IsKeyDown(KeyboardKey.D))
     {
         player.movement.X = 10;
     }
-    if (Raylib.IsKeyDown(KeyboardKey.A))
-    {
-        player.movement.X = -10;
     }
 
-
-
-    if (player.position.Y > 960)
+    if (Raylib.IsKeyDown(KeyboardKey.A))
     {
-        player.position.Y = 960;
+        
+        player.movement.X = -10;
+        
+    }
+    
+ 
+
+
+    if (player.position.Y > groundlevel -50)
+    {
+        player.position.Y = groundlevel -50 ;
         gravity = 0;
         jump = true;
 
@@ -81,7 +95,9 @@ if (jump==true){
 
     Raylib.ClearBackground(Color.DarkGray);
 
+    player.Draw();
 
+    
 
     Raylib.DrawRectangleRec(playerRect, Color.Magenta);
 
@@ -90,4 +106,3 @@ if (jump==true){
     Raylib.EndDrawing();
 
 }
-
