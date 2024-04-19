@@ -6,6 +6,7 @@ using Raylib_cs;
 class Player
 {
 
+
     public int speed = 0;
 
     public Rectangle rect = new(1250,800,100,1000);
@@ -19,10 +20,33 @@ class Player
 
     public float gravity = 0.35f;
 
+Boolean collision = false;
+Boolean right = false;
+Boolean left = false;
+Boolean up = false;
+
+bool jump = Collision.jumpt;
+    
+
     public void Update()
     {
+        if (jump == true)
+    {
 
+        if (Raylib.IsKeyPressed(KeyboardKey.W))
+        {
+            movement.Y = -10;
+            Collision.jumpt = false;
+        }
+if (Raylib.IsKeyPressed(KeyboardKey.Space))
+{
+    movement.Y = -10;
+    Collision.jumpt = false;
+}
     }
+
+       }
+    
 
     //     public void DrawRectangle(Player p, int posX,
     // int posY,
