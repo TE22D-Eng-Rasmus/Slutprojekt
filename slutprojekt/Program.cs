@@ -127,7 +127,7 @@ Raylib.BeginDrawing();
 Raylib.ClearBackground(Color.DarkGray);
 
 //player.Draw();
-// player.Update();
+
 
 wall.wall2();
 Collision.collision(wall, player, playerRect);

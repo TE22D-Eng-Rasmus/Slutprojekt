@@ -14,7 +14,7 @@ class Player
 
     public Vector2 movement = new(0, 0);
 
-    public Vector2 position = new(Raylib.GetScreenWidth() / 8, 1000);
+    public Vector2 position = new(Raylib.GetScreenWidth() / 8, 800);
 
     public Vector2 size = new(50, 50);
 
@@ -30,7 +30,7 @@ bool jump = Collision.jumpt;
 
     public void Update()
     {
-        if (jump == true)
+        if (Collision.jumpt == true)
     {
 
         if (Raylib.IsKeyPressed(KeyboardKey.W))
@@ -45,7 +45,10 @@ if (Raylib.IsKeyPressed(KeyboardKey.Space))
 }
     }
 
+    //Raylib.DrawCircle(position.Y+5,position.X+5,5,Color.Black);
+
        }
+       
     
 
     //     public void DrawRectangle(Player p, int posX,

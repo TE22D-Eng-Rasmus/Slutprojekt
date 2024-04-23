@@ -28,11 +28,14 @@ public static bool jumpt = true;
         {
             
             player.movement.Y = 0;
-            player.position.Y =f.Y-50;
+            if( player.position.Y >= f.Y-50 ){
+            player.position.Y =f.Y-50;}
             jumpt = true;
+            
             
            
         }
+        
     }
 }
 }
