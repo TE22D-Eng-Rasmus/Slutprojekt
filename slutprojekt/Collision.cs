@@ -49,7 +49,7 @@ class Collision
             if (Raylib.CheckCollisionRecs(g, playerRect))
             {
                 Wallg.bana ++;
-                player.movement.Y = -20;
+                
                 
 
             }

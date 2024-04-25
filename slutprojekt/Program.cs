@@ -40,6 +40,19 @@ class Program
 
             player.movement.X = 0;
 
+            if (Raylib.IsKeyDown(KeyboardKey.A))
+            {
+
+                player.movement.X = -10;
+
+            }
+
+            if (Raylib.IsKeyDown(KeyboardKey.D))
+                {
+                    player.movement.X = 10;
+                    
+                }
+
 
 
             player.position += player.movement;
@@ -62,7 +75,7 @@ class Program
 
 
             Raylib.DrawRectangleRec(playerRect, Color.Magenta);
-
+            Raylib.DrawText($"{Wallg.bana}", 50,50,50,Color.Green);
 
 
             Raylib.EndDrawing();

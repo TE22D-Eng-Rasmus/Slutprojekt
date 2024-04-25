@@ -50,21 +50,9 @@ class Player
             position = new(Raylib.GetScreenWidth() / 8, 800);
         }
 
-        //Raylib.DrawCircle(position.Y+5,position.X+5,5,Color.Black);
+        
 
-         if (Raylib.IsKeyDown(KeyboardKey.A))
-            {
-
-                movement.X = -10;
-               
-
-            }
-
-            if (Raylib.IsKeyDown(KeyboardKey.D))
-                {
-                    movement.X = 10;
-                    
-                }
+         
 
     }
 
@@ -86,12 +74,13 @@ class Player
     public void Draw()
     {
         Raylib.DrawRectangleRec(rect, Color.Green);
+       
 
 
     }
 }
 
-class cube
+class cube    // ingen funktion nu
 {
     public Vector2 positionC = new(50, 50);
 
