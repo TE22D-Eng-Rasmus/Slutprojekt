@@ -9,7 +9,7 @@ class Player
 
     public int speed = 0;
 
-    public Rectangle rect = new(1250,800,100,1000);
+    public Rectangle rect = new(1250, 800, 100, 1000);
     public Rectangle ground = new();
 
     public Vector2 movement = new(0, 0);
@@ -20,36 +20,55 @@ class Player
 
     public float gravity = 0.35f;
 
-Boolean collision = false;
-Boolean right = false;
-Boolean left = false;
-Boolean up = false;
+    Boolean collision = false;
+    Boolean right = false;
+    Boolean left = false;
+    Boolean up = false;
 
-bool jump = Collision.jumpt;
     
+
 
     public void Update()
     {
         if (Collision.jumpt == true)
-    {
-
-        if (Raylib.IsKeyPressed(KeyboardKey.W))
         {
-            movement.Y = -10;
-            Collision.jumpt = false;
+
+            if (Raylib.IsKeyPressed(KeyboardKey.W))
+            {
+                movement.Y = -10;
+                Collision.jumpt = false;
+            }
+            if (Raylib.IsKeyPressed(KeyboardKey.Space))
+            {
+                movement.Y = -10;
+                Collision.jumpt = false;
+            }
         }
-if (Raylib.IsKeyPressed(KeyboardKey.Space))
-{
-    movement.Y = -10;
-    Collision.jumpt = false;
-}
+
+        if (Raylib.IsKeyPressed(KeyboardKey.R))
+        {
+            position = new(Raylib.GetScreenWidth() / 8, 800);
+        }
+
+        //Raylib.DrawCircle(position.Y+5,position.X+5,5,Color.Black);
+
+         if (Raylib.IsKeyDown(KeyboardKey.A))
+            {
+
+                movement.X = -10;
+               
+
+            }
+
+            if (Raylib.IsKeyDown(KeyboardKey.D))
+                {
+                    movement.X = 10;
+                    
+                }
+
     }
 
-    //Raylib.DrawCircle(position.Y+5,position.X+5,5,Color.Black);
 
-       }
-       
-    
 
     //     public void DrawRectangle(Player p, int posX,
     // int posY,

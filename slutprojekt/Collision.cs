@@ -11,31 +11,49 @@ using Raylib_cs;
 
 
 
-class Collision{
-
-Player player;
-Program program;
-
-public static bool jumpt = true;
-
- public static void collision(Wallg wall, Player player, Rectangle playerRect)
+class Collision
 {
 
+    Player player;
+    Program program;
 
-    foreach (Rectangle f in wall.floor)
+    public static bool jumpt = true;
+
+    public static void collision(Wallg wall, Player player, Rectangle playerRect)
     {
-        if (Raylib.CheckCollisionRecs(f, playerRect))
+
+
+        foreach (Rectangle f in wall.floor)
         {
-            
-            player.movement.Y = 0;
-            if( player.position.Y >= f.Y-50 ){
-            player.position.Y =f.Y-50;}
-            jumpt = true;
-            
-            
-           
+            if (Raylib.CheckCollisionRecs(f, playerRect))
+            {
+
+                player.movement.Y = 0;
+                if (player.position.Y >= f.Y - 50)
+                {
+                    player.position.Y = f.Y - 50;
+                }
+                jumpt = true;
+
+
+
+            }
+
+
+
         }
-        
+
+
+        foreach (Rectangle g in wall.goals)
+        {
+            if (Raylib.CheckCollisionRecs(g, playerRect))
+            {
+                Wallg.bana ++;
+                player.movement.Y = -20;
+                
+
+            }
+        }
+
     }
-}
 }
