@@ -19,16 +19,10 @@ class Program
         Player player = new Player();
         Program program = new Program();
         Rectangle playerRect = new Rectangle(player.position, player.size);
-        Boolean right = false;
-        Boolean left = false;
-        Boolean up = false;
 
 
 
-
-        bool collision = false;
         wall.wall1();
-
 
         while (!Raylib.WindowShouldClose())
         {
@@ -40,23 +34,23 @@ class Program
 
             player.movement.X = 0;
 
-            if (Raylib.IsKeyDown(KeyboardKey.A))
+            if (Raylib.IsKeyDown(KeyboardKey.A)) // så spelaren kan gå vänster
             {
 
                 player.movement.X = -10;
 
             }
 
-            if (Raylib.IsKeyDown(KeyboardKey.D))
-                {
-                    player.movement.X = 10;
-                    
-                }
+            if (Raylib.IsKeyDown(KeyboardKey.D))  // så spelaren kan gå höger
+            {
+                player.movement.X = 10;
+
+            }
 
 
 
             player.position += player.movement;
-            player.movement.Y += gravity;
+            player.movement.Y += gravity;   // så att spelaren konstant dras ner av "tyngdkraften"
 
 
 
@@ -64,7 +58,7 @@ class Program
 
             Raylib.ClearBackground(Color.DarkGray);
 
-            //player.Draw();
+           
 
 
             wall.wall2();
@@ -75,7 +69,7 @@ class Program
 
 
             Raylib.DrawRectangleRec(playerRect, Color.Magenta);
-            Raylib.DrawText($"{Wallg.bana}", 50,50,50,Color.Green);
+            Raylib.DrawText($"{Wallg.bana}", 50, 50, 50, Color.Green);
 
 
             Raylib.EndDrawing();

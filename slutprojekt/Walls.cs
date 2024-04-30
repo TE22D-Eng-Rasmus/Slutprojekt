@@ -9,8 +9,9 @@ public class Wallg
 
     public List<Rectangle> goals = new();
     public static int bana = 1;
-    
+
     public Rectangle wall = new Rectangle(0, 60, 60, 60);
+     
     public void wall1()
     {
 
@@ -19,7 +20,7 @@ public class Wallg
 
 
 
-            int[,] grid = {
+            int[,] grid = {        //outlayen för bana 1
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -35,7 +36,7 @@ public class Wallg
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-    {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+    {0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -43,7 +44,10 @@ public class Wallg
     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
     };
 
-
+            if (Wallg.bana >= 2)
+            {
+                bana = 2;
+            }
 
             int tileSize = 50;
 
@@ -53,24 +57,24 @@ public class Wallg
                 {
                     if (grid[y, x] == 1)
                     {
-                        floor.Add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize));
-                    }
+                        floor.Add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize));  // sätter ut block
+                    } 
                     if (grid[y, x] == 2)
                     {
 
-                        goals.Add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize));
+                        goals.Add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize));  // sätter ut mål
                     }
                 }
             }
+
         }
-
-
+    
         if (bana == 2)
         {
 
 
 
-            int[,] grid = {
+            int[,] grid = {    //outlay för bana 2
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -96,7 +100,7 @@ public class Wallg
 
 
 
-            int tileSize = 50;
+            int tileSize = 50; //gör så varje block är 50 X 50
 
             for (var x = 0; x < grid.GetLength(1); x++)
             {
@@ -104,18 +108,18 @@ public class Wallg
                 {
                     if (grid[y, x] == 1)
                     {
-                        floor.Add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize));
+                        floor.Add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize)); // sätter ut block
                     }
                     if (grid[y, x] == 2)
                     {
 
-                        goals.Add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize));
+                        goals.Add(new Rectangle(x * tileSize, y * tileSize, tileSize, tileSize));   // sätter ut mål
                     }
                 }
             }
         }
     }
-    public void wall2()
+    public void wall2()  //gör så blocken syns i deras bestämmda platser
     {
 
 

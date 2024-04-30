@@ -9,26 +9,21 @@ class Player
 
     public int speed = 0;
 
-    public Rectangle rect = new(1250, 800, 100, 1000);
+    
     public Rectangle ground = new();
 
-    public Vector2 movement = new(0, 0);
+    public Vector2 movement = new(0, 0);  // hastighet av spelaren
 
-    public Vector2 position = new(Raylib.GetScreenWidth() / 8, 800);
+    public Vector2 position = new(Raylib.GetScreenWidth() / 8, 800);  // vart spelaren startar
 
-    public Vector2 size = new(50, 50);
+    public Vector2 size = new(50, 50);    // storlek av spelaren
 
-    public float gravity = 0.35f;
-
-    Boolean collision = false;
-    Boolean right = false;
-    Boolean left = false;
-    Boolean up = false;
-
-    
+    public float gravity = 0.35f;   // float som anvämnds för att spelarn ska ha någon form av tyngdkraft
 
 
-    public void Update()
+
+
+    public void Update()  // så man kan hoppa och om spelaren klickar en resetar gubben position
     {
         if (Collision.jumpt == true)
         {
@@ -50,31 +45,20 @@ class Player
             position = new(Raylib.GetScreenWidth() / 8, 800);
         }
 
-        
 
-         
+
+
 
     }
 
 
 
-    //     public void DrawRectangle(Player p, int posX,
-    // int posY,
-    // int width,
-    // int height,
-    // System.Drawing.Color color)
-    // {
-    //     if (p.position.Y > posY)
-    //     {
-    //         p.position.Y = posY;
-    //         float gravity = 0;
-    //     }
-    // }
 
-    public void Draw()
+
+    public void Draw() // används ej
     {
-        Raylib.DrawRectangleRec(rect, Color.Green);
        
+
 
 
     }
