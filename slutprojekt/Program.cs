@@ -21,7 +21,12 @@ class Program
         Rectangle playerRect = new Rectangle(player.position, player.size);
 
 
+       
 
+ if (Wallg.bana == 2){
+        wall.wallSecond();
+}
+else 
         wall.wall1();
 
         while (!Raylib.WindowShouldClose())
@@ -57,6 +62,9 @@ class Program
             Raylib.BeginDrawing();
 
             Raylib.ClearBackground(Color.DarkGray);
+            if (Wallg.bana >= 2){
+                Wallg.bana = 2;
+            }
 
            
 
